@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Weather</title>
+      <link href="{{ url_for('static', filename='ViewLOS.css') }}" type="text/css" rel="stylesheet" />
+   </head>
+   <body>
+      <h1 align="center"> Patient Info </h1>
+      <div style="text-align: center;">
+         <div style="background-color:lightblue;display: inline-block;width: 80%;text-align: left">
+         
+         <table border = 0 style="display: inline-block;">
+            <tbody>
+               <tr>
+                  <td rowspan="2" width="10%"><img src={{ url_for('static', filename='logo.jpg') }} style="width:80px;height:80px;"></td>
+                  <th width="10%" align="right"> Name: </th>
+                  <td width="20%"> {{ result.name }} </td>
+                  <th width="10%" align="right"> DOB: </th>
+                  <td width="20%"> {{ result.dob }} </td>
+                  <th width="10%" align="right"> Admit Time: </th>
+                  <td width="20%"> {{ result.admittime }} </td>
+               </tr>
+               <tr>
+                  <td width="10%" align="right"> Test1: </td>
+                  <td width="20%"> {{ result.test1 }} </td>
+                  <td width="10%" align="right"> Test2: </td>
+                  <td width="20%"> {{ result.test2 }} </td>
+                  <td  width="10%" align="right"> Test3: </td>
+                  <td width="20%"> {{ result.test3 }} </td>
+               </tr>
+            </tbody>
+               
+               <!--
+               {% for key, value in result.items() %}
+               {% if loop.index <= 3%}
+               <tr style="position: relative;left:{{ -20 + 30 * loop.index}}%;"> {{ key }}: </th>
+               <td style="position: relative;left:{{ -20 + 30  * loop.index }}%;"> {{ value }} </td>
+               {% else %}
+               <tr style="position: relative;left:{{ -20 + 30 * (loop.index-3)}}%;"> {{ key }}: </th>
+               <td style="position: relative;left:{{ -20 + 30  * (loop.index-3) }}%;"> {{ value }} </td>
+               {% endif %}
+               {% endfor %}
+               -->
+         </table>
+      </div>
+      <form action="{{ url_for('home') }}" method="post">
+         <button type=submit>New Search</button>
+      </form>
+      
+      <a href="/index">Home</a>
+      </div>
+      
+   </body>
+</html>
